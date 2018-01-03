@@ -57,8 +57,14 @@ end
 
     holiday_hash.each do |season, holidays|
       puts "#{season.to_s.capitalize}:"
-        holiday_hash.each do |holiday, supplies|
-          puts "  #{holiday.to_s.split("_").collect{|word| word.capitalize}.join(" ")}: #{supplies.join(", ")}"
+        holiday_hash.each do |holiday, supply_array|
+          if holiday.to_s.include?("_")
+            capitalize_array = holiday.to_s.split("_")
+            capitalize_array.map! {|word| word.capitalize}
+            puts "  #{capitalize_array.join(' ')}: #{supply_array.join(', ')}"
+          else
+            puts "  #{holiday.to_s.capitalize}: #{supply_array.join(', ')}"
+          end
         end
       end
     end
