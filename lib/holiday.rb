@@ -55,7 +55,7 @@ end
 
 
 
-    holiday_hash.each do |season, holidays|
+    holiday_hash.each do |season, holiday|
       puts "#{season.to_s.capitalize}:"
         holiday_hash.each do |holiday, supply_array|
           if holiday.to_s.include?("_")
