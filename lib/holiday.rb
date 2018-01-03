@@ -55,17 +55,12 @@ end
 
 
 
-    holiday_hash.each do |season, holiday|
-      puts "#{season.to_s.capitalize}:"
-        holiday_hash.each do |holiday, supply_array|
-          if holiday.to_s.include?("_")
-            capitalize_array = holiday.to_s.split("_")
-            capitalize_array.map! {|word| word.capitalize}
-            puts "  #{capitalize_array.join(' ')}: #{supply_array.join(', ')}"
-          else
-            puts "  #{holiday.to_s.capitalize}: #{supply_array.join(', ')}"
+     holiday_hash.each do |season, holiday|
+          puts "#{season.to_s.capitalize}:"
+          holiday.keys.each do |hol|
+            new_hol = hol.to_s.split("_").join(" ")
+            puts "  #{new_hol.split.each{|i| i.capitalize!}.join(' ')}: #{holiday[hol].join(", ")}"
           end
-        end
       end
     end
 
